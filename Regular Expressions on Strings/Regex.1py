@@ -1,0 +1,20 @@
+import re
+str="Hell-_o123!@#"
+str1="9812173112"
+#p="[^A-Za-z]"
+p="\W"
+q="\w"
+x="\d"
+r=re.findall(p,str)
+print(r)
+r=re.findall(q,str)
+print(r)
+r=re.findall(x,str)
+print(r)
+r=re.findall(x,str1)
+print(r)
+print(len(r)==len(str1))
+
+
+
+
