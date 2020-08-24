@@ -1,0 +1,21 @@
+cont = False
+while True:
+    com = input("enter command").lower()
+    if com == "start":
+        print("car starts")
+        cont = True
+    if cont == True:
+        print("Car already running")
+
+    elif com == "stop":
+        print("car stops")
+        if cont == False:
+            print("car already stopped")
+    elif com == "exit":
+        print("exit")
+        break
+    else:
+        print("error")
+
+
+
