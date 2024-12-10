@@ -1,242 +1,223 @@
-class mains:
-    listerp=[]
-    def __init__(self):
-        self.age=0
-        self.name=0
-        self.id=0
-        self.area=0
-        self.share=0
-        self.course=0
+class Mains:
+    listerp = []
+
+    def __init__(self, name="", age=0, id=0, area=0, share=0, course=0):
+        self.name = name
+        self.age = age
+        self.id = id
+        self.area = area
+        self.share = share
+        self.course = course
 
 
-class director(mains):
+class Director(Mains):
     def addDirc(self):
-        mains.listerp.append(self)
-    def searchDirc(self):
-        for e in mains.listerp:
-            if e.id==self.id:
-                self.name=e.name
-                self.age=e.age
-                self.share=e.share
-                return 1
-            else:
-                return 0
-    def modifyDirc(self):
-        for e in mains.listerp:
-            if e.id==self.id:
-                self.name=e.name
-                self.age=e.age
-                self.share=e.share
-                return 1
-        else:
-            return 0
-    def delDirc(self):
-        for e in mains.listerp:
-            if e.id==self.id:
-                mains.listerp.pop(self)
-                return 1
-            else:
-                return 0
-    def dispDirc(self):
-        for e in mains.listerp:
-            print(e.name,e.id,e.age,e.share)
+        Mains.listerp.append(self)
 
-class trainer(mains):
+    def searchDirc(self):
+        for e in Mains.listerp:
+            if e.id == self.id:
+                self.name = e.name
+                self.age = e.age
+                self.share = e.share
+                return 1
+        return 0
+
+    def modifyDirc(self):
+        for e in Mains.listerp:
+            if e.id == self.id:
+                e.name = self.name
+                e.age = self.age
+                e.share = self.share
+                return 1
+        return 0
+
+    def delDirc(self):
+        for e in Mains.listerp:
+            if e.id == self.id:
+                Mains.listerp.remove(e)
+                return 1
+        return 0
+
+    def dispDirc(self):
+        for e in Mains.listerp:
+            print(f"Name: {e.name}, ID: {e.id}, Age: {e.age}, Share: {e.share}")
+
+
+class Trainer(Mains):
     def addTrn(self):
-        mains.listerp.append(self)
+        Mains.listerp.append(self)
 
     def searchTrn(self):
-        for e in mains.listerp:
+        for e in Mains.listerp:
             if e.id == self.id:
                 self.name = e.name
                 self.age = e.age
                 self.course = e.course
                 return 1
-            else:
-                return 0
+        return 0
 
     def modifyTrn(self):
-        for e in mains.listerp:
+        for e in Mains.listerp:
             if e.id == self.id:
-                self.name = e.name
-                self.age = e.age
-                self.course = e.course
+                e.name = self.name
+                e.age = self.age
+                e.course = self.course
                 return 1
-        else:
-            return 0
+        return 0
 
     def delTrn(self):
-        for e in mains.listerp:
+        for e in Mains.listerp:
             if e.id == self.id:
-                mains.listerp.pop(self)
+                Mains.listerp.remove(e)
                 return 1
-            else:
-                return 0
+        return 0
 
     def dispTrn(self):
-        for e in mains.listerp:
-            print(e.name, e.id, e.age, e.course)
+        for e in Mains.listerp:
+            print(f"Name: {e.name}, ID: {e.id}, Age: {e.age}, Course: {e.course}")
 
-class manager(mains):
+
+class Manager(Mains):
     def addMng(self):
-        mains.listerp.append(self)
+        Mains.listerp.append(self)
 
     def searchMng(self):
-        for e in mains.listerp:
+        for e in Mains.listerp:
             if e.id == self.id:
                 self.name = e.name
                 self.age = e.age
                 self.area = e.area
                 return 1
-            else:
-                return 0
+        return 0
 
     def modifyMng(self):
-        for e in mains.listerp:
+        for e in Mains.listerp:
             if e.id == self.id:
-                self.name = e.name
-                self.age = e.age
-                self.area = e.area
+                e.name = self.name
+                e.age = self.age
+                e.area = self.area
                 return 1
-        else:
-            return 0
+        return 0
 
     def delMng(self):
-        for e in mains.listerp:
+        for e in Mains.listerp:
             if e.id == self.id:
-                mains.listerp.pop(self)
+                Mains.listerp.remove(e)
                 return 1
-            else:
-                return 0
+        return 0
 
     def dispMng(self):
-        for e in mains.listerp:
-            print(e.name, e.id, e.age, e.area)
+        for e in Mains.listerp:
+            print(f"Name: {e.name}, ID: {e.id}, Age: {e.age}, Area: {e.area}")
 
 
-while(1):
-    print('\t\t\tEnterprise resource planning')
+# Main loop
+while True:
+    print('\t\t\tEnterprise Resource Planning')
+    print('Enter choice of occupation\n1. DIRECTOR\n2. TRAINER\n3. MANAGER\n4. EXIT')
+    ch = input('Enter choice (1-4): ')
+    print('ENTER CHOICE\n1. ADD\n2. SEARCH\n3. MODIFY\n4. DELETE\n5. DISPLAY ALL')
+    ch1 = input('Enter choice (1-5): ')
 
-    print('Enter choice of occupation\n1.DIRECTOR\n2.TRAINER\n3.MANAGER\n4.EXIT')
-    ch=input('enter choice(1-4):')
-    print('ENTER CHOICE\n1.ADD\n2.SEARCH\n3.MODIFY\n4.DELETE\n5.DISPLAY ALL')
-    ch1=input('enter choice(1-6):')
-    if ch=='1':
-        dir= director()
-        if ch1=='1':
-            name=input('enter name:')
-            age=input('enter age:')
-            id=input('enter id:')
-            share=input('enter amount of shares:')
+    if ch == '1':
+        dir = Director()
+        if ch1 == '1':
+            dir.name = input('Enter name: ')
+            dir.age = int(input('Enter age: '))
+            dir.id = int(input('Enter ID: '))
+            dir.share = float(input('Enter amount of shares: '))
             dir.addDirc()
-            print('director added successfully')
-        if ch1=='2':
-            id=input('enter id to search:')
-            flag = dir.searchDirc()
-            if flag==1:
-                print('name::',dir.name,'age:',dir.age,'share:',dir.share)
+            print('Director added successfully')
+        elif ch1 == '2':
+            dir.id = int(input('Enter ID to search: '))
+            if dir.searchDirc() == 1:
+                print(f"Name: {dir.name}, Age: {dir.age}, Share: {dir.share}")
             else:
-                print('id doesnt exist!!  enter valid id')
-        if ch1=='3':
-            id=input('enter id to be modified')
-            new_name=input('enter new name:')
-            new_age=input('enter new age:')
-            new_share=input('enter new share:')
-            flag=dir.modifyDirc()
-            if flag==1:
+                print('ID doesn\'t exist! Enter a valid ID')
+        elif ch1 == '3':
+            dir.id = int(input('Enter ID to modify: '))
+            dir.name = input('Enter new name: ')
+            dir.age = int(input('Enter new age: '))
+            dir.share = float(input('Enter new share amount: '))
+            if dir.modifyDirc() == 1:
                 print('Director modified successfully')
             else:
-                print('id is not found!! enter valid id')
-        if ch1=='4':
-            id=input('enter id to be deleted:')
-            flag=dir.delDirc()
-            if flag==1:
-                print('director deleted successfully')
+                print('ID not found! Enter a valid ID')
+        elif ch1 == '4':
+            dir.id = int(input('Enter ID to delete: '))
+            if dir.delDirc() == 1:
+                print('Director deleted successfully')
             else:
-                print('invalid id')
-        if ch1=='5':
+                print('Invalid ID')
+        elif ch1 == '5':
             dir.dispDirc()
 
-
-
-
-
-    if ch=='2':
-        trn= trainer()
-        if ch1=='1':
-            name=input('enter name:')
-            age=input('enter age:')
-            id=input('enter id:')
-            course=input('enter name of course:')
+    elif ch == '2':
+        trn = Trainer()
+        if ch1 == '1':
+            trn.name = input('Enter name: ')
+            trn.age = int(input('Enter age: '))
+            trn.id = int(input('Enter ID: '))
+            trn.course = input('Enter course name: ')
             trn.addTrn()
-            print('trainer added successfully')
-        if ch1=='2':
-            id=input('enter id to search:')
-            flag = trn.searchTrn()
-            if flag==1:
-                print('name::',trn.name,'age:',trn.age,'course:',trn.course)
+            print('Trainer added successfully')
+        elif ch1 == '2':
+            trn.id = int(input('Enter ID to search: '))
+            if trn.searchTrn() == 1:
+                print(f"Name: {trn.name}, Age: {trn.age}, Course: {trn.course}")
             else:
-                print('id doesnt exist!!  enter valid id')
-        if ch1=='3':
-            id=input('enter id to be modified')
-            new_name=input('enter new name:')
-            new_age=input('enter new age:')
-            new_course=input('enter new course:')
-            flag=trn.modifyTrn()
-            if flag==1:
+                print('ID doesn\'t exist! Enter a valid ID')
+        elif ch1 == '3':
+            trn.id = int(input('Enter ID to modify: '))
+            trn.name = input('Enter new name: ')
+            trn.age = int(input('Enter new age: '))
+            trn.course = input('Enter new course: ')
+            if trn.modifyTrn() == 1:
                 print('Trainer modified successfully')
             else:
-                print('id is not found!! enter valid id')
-        if ch1=='4':
-            id=input('enter id to be deleted:')
-            flag=trn.delTrn()
-            if flag==1:
-                print('trainer deleted successfully')
+                print('ID not found! Enter a valid ID')
+        elif ch1 == '4':
+            trn.id = int(input('Enter ID to delete: '))
+            if trn.delTrn() == 1:
+                print('Trainer deleted successfully')
             else:
-                print('invalid id')
-        if ch1=='5':
+                print('Invalid ID')
+        elif ch1 == '5':
             trn.dispTrn()
 
-
-
-
-    if ch=='3':
-        mng=manager()
-        if ch1=='1':
-            name=input('enter name:')
-            age=input('enter age:')
-            id=input('enter id:')
-            area=input('enter area:')
+    elif ch == '3':
+        mng = Manager()
+        if ch1 == '1':
+            mng.name = input('Enter name: ')
+            mng.age = int(input('Enter age: '))
+            mng.id = int(input('Enter ID: '))
+            mng.area = input('Enter area: ')
             mng.addMng()
-            print('manager added successfully')
-        if ch1=='2':
-            id=input('enter id to search:')
-            flag = mng.searchDirc()
-            if flag==1:
-                print('name::',mng.name,'age:',mng.age,'area:',mng.area)
+            print('Manager added successfully')
+        elif ch1 == '2':
+            mng.id = int(input('Enter ID to search: '))
+            if mng.searchMng() == 1:
+                print(f"Name: {mng.name}, Age: {mng.age}, Area: {mng.area}")
             else:
-                print('id doesnt exist!!  enter valid id')
-        if ch1=='3':
-            id=input('enter id to be modified')
-            new_name=input('enter new name:')
-            new_age=input('enter new age:')
-            new_area=input('enter new area:')
-            flag=mng.modifyMng()
-            if flag==1:
+                print('ID doesn\'t exist! Enter a valid ID')
+        elif ch1 == '3':
+            mng.id = int(input('Enter ID to modify: '))
+            mng.name = input('Enter new name: ')
+            mng.age = int(input('Enter new age: '))
+            mng.area = input('Enter new area: ')
+            if mng.modifyMng() == 1:
                 print('Manager modified successfully')
             else:
-                print('id is not found!! enter valid id')
-        if ch1=='4':
-            id=input('enter id to be deleted:')
-            flag=mng.delMng()
-            if flag==1:
-                print('manager deleted successfully')
+                print('ID not found! Enter a valid ID')
+        elif ch1 == '4':
+            mng.id = int(input('Enter ID to delete: '))
+            if mng.delMng() == 1:
+                print('Manager deleted successfully')
             else:
-                print('invalid id')
-        if ch1=='5':
+                print('Invalid ID')
+        elif ch1 == '5':
             mng.dispMng()
 
-    if ch=='4':
+    elif ch == '4':
         break
-
-
